@@ -1,22 +1,27 @@
 #include <iostream>
-#include "Headers/Array.h"
+#include "Headers/ArrayStack_List.h"
 
 using namespace std;
 
 int main() {
 
-    Array<int> arr(3);
-    arr[0] = 4;
-    arr[1] = 2;
-    arr[2] = 7;
+    cout << "------------------------ ArrayStack_List ------------------------" << endl;
+    ArrayStack_List<int> arrayStack;
+    arrayStack.add(0, 1);
+    cout << arrayStack << endl;
+    arrayStack.add(1, 2);
+    cout << arrayStack << endl;
+    arrayStack.add(2, 3);
+    cout << arrayStack << endl;
+    arrayStack.add(3, 4);
+    cout << arrayStack << endl;
+    cout << "Set element in index of 2 to 5" << endl;
+    arrayStack.set(2, 5);
+    cout << arrayStack << endl;
+    cout << "Element in index of 1: " << arrayStack.get(1) << endl;
+    cout << "Removing element in index of 1..." << endl;
+    arrayStack.remove(1);
+    cout << arrayStack << endl;
 
-    Array<int> new_arr(4);
-    new_arr[0] = 6;
-    new_arr[1] = 8;
-    new_arr[2] = 10;
-    new_arr[3] = 16;
-
-    arr = new_arr;
-    cout << arr;
     return 0;
 }

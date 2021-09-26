@@ -13,6 +13,7 @@ public:
     ~Array();
     T &operator[](int);
     Array<T> &operator=(Array<T>&);
+    unsigned int len() const { return length; };
 
 private:
     T *a;
@@ -21,9 +22,9 @@ private:
 #endif //DATA_STRUCTURES_ARRAY_H
 
 template <typename T>
-Array<T>::Array(unsigned int len)
+Array<T>::Array(unsigned int l)
 {
-    length = len;
+    length = l;
     a = new T[length];
 }
 
