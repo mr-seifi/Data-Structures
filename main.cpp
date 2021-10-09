@@ -1,6 +1,6 @@
 #include <iostream>
-#include "ArrayBased/ArrayStack.cpp"
-#include "ArrayBased/ArrayQueue.cpp"
+#include "ArrayBased_Lists/ArrayStack.cpp"
+#include "ArrayBased_Lists/ArrayQueue.cpp"
 
 using namespace std;
 
