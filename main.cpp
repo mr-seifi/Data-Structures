@@ -2,6 +2,7 @@
 #include "ArrayBased_Lists/ArrayStack.cpp"
 #include "ArrayBased_Lists/ArrayQueue.cpp"
 #include "Linked_Lists/SLList.cpp"
+#include "Linked_Lists/DLList.cpp"
 
 using namespace std;
 
@@ -53,6 +54,24 @@ int main() {
     cout << slList << endl;
     slList.remove();
     cout << slList << endl;
+
+    cout << "------------------------ DLList ------------------------" << endl;
+    DLList<int> dlList;
+    dlList.add(0, 5);
+    cout << dlList << endl;
+    dlList.add(1, 6);
+    cout << dlList << endl;
+    dlList.add(2, 7);
+    cout << dlList << endl;
+    dlList.add(0, 4);
+    cout << dlList << endl;
+    dlList.remove(0);
+    cout << dlList << endl;
+    dlList.remove(1);
+    cout << dlList << endl;
+    dlList.remove(1);
+    cout << dlList << endl;
+    dlList.remove(0);
 
     return 0;
 }

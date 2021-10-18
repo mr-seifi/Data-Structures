@@ -11,7 +11,7 @@ set(LinkedLists "Linked_Lists")
 #Include the directories and now your cpp files will recognize your headers
 include_directories(${ArrayBased} ${LinkedLists})
 
-set(Headers ${ArrayBased}/Array.h ${ArrayBased}/ArrayStack.h ${ArrayBased}/ArrayQueue.h ${LinkedLists}/Node.h ${LinkedLists}/SLList.h)
-set(Sources ${ArrayBased}/ArrayStack.cpp ${ArrayBased}/ArrayQueue.cpp ${LinkedLists}/SLList.cpp)
+set(Headers ${ArrayBased}/Array.h ${ArrayBased}/ArrayStack.h ${ArrayBased}/ArrayQueue.h ${LinkedLists}/Node.h ${LinkedLists}/SLList.h ${LinkedLists}/DLList.h)
+set(Sources ${ArrayBased}/ArrayStack.cpp ${ArrayBased}/ArrayQueue.cpp ${LinkedLists}/SLList.cpp ${LinkedLists}/DLList.cpp)
 
 add_executable(Data-Structures main.cpp ${Sources} ${Headers})
