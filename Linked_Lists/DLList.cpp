@@ -44,7 +44,7 @@ T DLList<T>::set(int i, const T &x)
 {
     getNode(i)->x = x;
     return x;
-} // Test
+}
 
 template <typename T>
 DLNode<T> *DLList<T>::addBefore(DLNode<T> *w, const T &x)
