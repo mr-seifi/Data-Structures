@@ -6,17 +6,18 @@
 template <typename T>
 class ChainedHashTable {
 public:
-    ChainedHashTable(unsigned int = (1 << ((1 << 3) + 1)));
+    ChainedHashTable(unsigned int = 8);
     bool add(const T&);
     bool find(const T&);
     bool remove(const T&);
-    int hash(const T&, unsigned int = (1 << 3));
-    int hashCode(const T&) const;
+    unsigned int hash(const T&);
+    unsigned int hashCode(const T&) const;
     void resize();
 
 private:
     ArrayStack<ArrayStack<T>> t;
     int n;
+    int d;
 };
 
 

@@ -2,10 +2,11 @@
 #include "Node.h"
 
 template <typename T>
-ChainedHashTable<T>::ChainedHashTable(unsigned int n)
-                   : t(n)
+ChainedHashTable<T>::ChainedHashTable(unsigned int d)
+                   : t(1 << d)
 {
     this->n = 0;
+    this->d = d;
 }
 
 template <typename T>
@@ -56,14 +57,13 @@ void ChainedHashTable<T>::resize()
 }
 
 template <typename T>
-int ChainedHashTable<T>::hash(const T &x, unsigned int d)
+unsigned int ChainedHashTable<T>::hash(const T &x)
 {
-    unsigned int g = (((unsigned int) ((1 << 32) - 5) * hashCode(x)) >> (32 - d));
-    return ((unsigned int) ((1 << 32) - 5) * hashCode(x)) >> (32 - d);
+    return ((unsigned int) (4102541685) * hashCode(x) >> (32 - d));
 }
 
 template <typename T>
-int ChainedHashTable<T>::hashCode(const T &x) const
+unsigned int ChainedHashTable<T>::hashCode(const T &x) const
 {
-    return x;
+    return x; // Identity function
 }
