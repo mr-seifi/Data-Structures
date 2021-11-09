@@ -1,4 +1,5 @@
 #include <iostream>
+#include <climits>
 #include "ArrayBased_Lists/ArrayStack.cpp"
 #include "ArrayBased_Lists/ArrayQueue.cpp"
 #include "Linked_Lists/SLList.cpp"
@@ -76,7 +77,7 @@ int main()
     dlList.remove(0);
 
     cout << "------------------------ ChainedHashTable ------------------------" << endl;
-    ChainedHashTable<int> chainedHashTable;
+    ChainedHashTable<int> chainedHashTable(8);
     cout << "Add 1" << endl;
     chainedHashTable.add(1);
     cout << "Find 1: " << chainedHashTable.find(1) << endl;
@@ -93,6 +94,14 @@ int main()
     cout << "Add 1" << endl;
     chainedHashTable.add(1);
     cout << "Find 1: " << chainedHashTable.find(1) << endl;
+    chainedHashTable.remove(1);
+    cout << "Find 1: " << chainedHashTable.find(1) << endl;
+    chainedHashTable.remove(1);
+    cout << "Find 1: " << chainedHashTable.find(1) << endl;
+    cout << chainedHashTable.hash(3) << endl;
+    cout << chainedHashTable.hash(2) << endl;
+    cout << chainedHashTable.hash(1000000) << endl;
+    cout << chainedHashTable.hash(1000) << endl;
 
     return 0;
 }
