@@ -38,7 +38,7 @@ void ArrayStack<T>::add(unsigned int i, const T &x)
 {
     if(n + 1 > a.len())
         resize();
-    std::copy_backward(a + i, a + n, a + n + 1);
+    std::copy_backward(a.a + i, a.a + n, a.a + n + 1);
     a[i] = x;
     ++n;
 }
@@ -47,8 +47,7 @@ template <typename T>
 T ArrayStack<T>::remove(unsigned int i)
 {
     T x = a[i];
-    for(unsigned int j = i; j < n; ++j)
-        a[j] = a[j + 1];
+    std::copy_backward(a.a + i + 1, a.a + n, a.a + n - 1);
     --n;
     if(a.len() >= 3 * n)
         resize();
@@ -59,7 +58,7 @@ template <typename T>
 void ArrayStack<T>::resize()
 {
     Array<T> b((n * 2 > 1 ? n * 2 : 1));
-    std::copy(a + 0, a + n, b + 0);
+    std::copy(a.a + 0, a.a + n, b.a + 0);
     a = b;
 }
 
