@@ -11,6 +11,8 @@ class Array
     template <typename U>
     friend std::ostream &operator<<(std::ostream&, const Array<U>&);
 public:
+    T *a;
+    unsigned int length;
     explicit Array(unsigned int);
     ~Array();
     T &operator[](int);
@@ -18,9 +20,6 @@ public:
     Array<T> &operator=(Array<T>&);
     unsigned int len() const { return length; };
 
-private:
-    T *a;
-    unsigned int length;
 };
 
 
