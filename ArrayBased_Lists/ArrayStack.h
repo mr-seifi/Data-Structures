@@ -10,15 +10,17 @@ class ArrayStack
     template <typename U>
     friend std::ostream &operator<<(std::ostream&, const ArrayStack<U>&);
 public:
-    explicit ArrayStack(unsigned int = 1);
+    ArrayStack();
+    explicit ArrayStack(unsigned int);
+    ArrayStack(unsigned int, const T&);
     unsigned int size() const;
+    unsigned int capacity() const;
     T& get(unsigned int);
     T set(unsigned int, const T&);
     void add(unsigned int, const T&);
     T remove(unsigned int);
     void resize();
     T& operator[](int subscript);
-    ArrayStack &operator=(const ArrayStack<T>&);
 
 private:
     Array<T> a;

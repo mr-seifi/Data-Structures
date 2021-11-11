@@ -1,16 +1,41 @@
 #include "ArrayStack.h"
 
 template <typename T>
-ArrayStack<T>::ArrayStack(unsigned int len)
-        :a(len)
+ArrayStack<T>::ArrayStack()
+              :a(1)
 {
-    n = len;
+    n = 0;
+}
+
+template <typename T>
+ArrayStack<T>::ArrayStack(unsigned int len)
+              :a(len)
+{
+    n = 0;
+    T x;
+    for(int i = 0; i < len; ++i)
+        add(size(), x);
+}
+
+template <typename T>
+ArrayStack<T>::ArrayStack(unsigned int len, const T &x)
+              :a(len)
+{
+    n = 0;
+    for(int i = 0; i < len; ++i)
+        add(size(), x);
 }
 
 template <typename T>
 unsigned int ArrayStack<T>::size() const
 {
     return n;
+}
+
+template <typename T>
+unsigned int ArrayStack<T>::capacity() const
+{
+    return a.len();
 }
 
 template <typename T>
@@ -60,7 +85,7 @@ template <typename T>
 std::ostream &operator<<(std::ostream &output, const ArrayStack<T> &b)
 {
     int t = b.n;
-    while(t - 1)
+    while(t)
         output << b.a[b.n - t--] << '\t';
     return output;
 }
@@ -69,12 +94,4 @@ template <typename T>
 T &ArrayStack<T>::operator[](int subscript)
 {
     return get(subscript);
-}
-
-template <typename T>
-ArrayStack<T> &ArrayStack<T>::operator=(const ArrayStack<T> &b)
-{
-    n = b.size();
-    std::copy(a.a + 0, a.a + n, b.a.a + 0);
-    return *this;
 }
