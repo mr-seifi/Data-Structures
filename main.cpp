@@ -1,5 +1,4 @@
 #include <iostream>
-#include <climits>
 #include "ArrayBased_Lists/ArrayStack.cpp"
 #include "ArrayBased_Lists/ArrayQueue.cpp"
 #include "Linked_Lists/SLList.cpp"
@@ -25,6 +24,20 @@ int main()
     cout << arrayStack << endl;
     arrayStack.remove(1);
     cout << arrayStack << endl;
+
+    ArrayStack<int> arrayStack1(3, 0);
+    cout << arrayStack1 << endl;
+    arrayStack1.set(0, 1);
+    arrayStack1.set(1, 2);
+    arrayStack1.add(arrayStack1.size(), 10);
+    arrayStack1.add(arrayStack1.size(), 10);
+    arrayStack1.add(arrayStack1.size(), 10);
+    cout << arrayStack1 << endl;
+
+    ArrayStack<ArrayStack<int>> arrayStack2;
+    arrayStack2.add(arrayStack2.size(), arrayStack);
+    arrayStack2.add(arrayStack2.size(), arrayStack1);
+    cout << arrayStack2[0] << endl << arrayStack2[1] << endl;
 
     cout << "------------------------ ArrayQueue ------------------------" << endl;
     ArrayQueue<int> arrayQueue;
@@ -94,14 +107,57 @@ int main()
     cout << "Add 1" << endl;
     chainedHashTable.add(1);
     cout << "Find 1: " << chainedHashTable.find(1) << endl;
+    cout << "Remove 1" << endl;
     chainedHashTable.remove(1);
     cout << "Find 1: " << chainedHashTable.find(1) << endl;
     chainedHashTable.remove(1);
     cout << "Find 1: " << chainedHashTable.find(1) << endl;
-    cout << chainedHashTable.hash(3) << endl;
-    cout << chainedHashTable.hash(2) << endl;
-    cout << chainedHashTable.hash(1000000) << endl;
-    cout << chainedHashTable.hash(1000) << endl;
+    cout << "Hash 3: " << chainedHashTable.hash(3) << endl;
+    cout << "Hash 2: " << chainedHashTable.hash(2) << endl;
+    cout << "Hash 1000000: " << chainedHashTable.hash(1000000) << endl;
+    cout << "Hash 1000: " << chainedHashTable.hash(1000) << endl;
+
+    cout << "------------------------ ChainedHashTable (Check Resize) ------------------------" << endl;
+    ChainedHashTable<int> ch(3);
+    cout << "Add 1" << endl;
+    ch.add(1);
+    cout << "Add 2" << endl;
+    ch.add(2);
+    cout << "Add 3" << endl;
+    ch.add(3);
+    cout << "Add 4" << endl;
+    ch.add(4);
+    cout << "Add 5" << endl;
+    ch.add(5);
+    cout << "Add 6" << endl;
+    ch.add(6);
+    cout << "Add 7" << endl;
+    ch.add(7);
+    cout << "Hash 1 (Before resize): " << ch.hash(1) << endl;
+    cout << "Hash 2 (Before resize): " << ch.hash(2) << endl;
+    cout << "Hash 3 (Before resize): " << ch.hash(3) << endl;
+    cout << "Hash 4 (Before resize): " << ch.hash(4) << endl;
+    cout << "Add 8" << endl;
+    ch.add(8);
+    cout << "Add 9" << endl;
+    ch.add(9);
+    cout << "Add 10" << endl;
+    ch.add(10);
+    cout << "Add 11" << endl;
+    ch.add(11);
+    cout << "Hash 1 (After resize): " << ch.hash(1) << endl;
+    cout << "Find 1: " << ch.find(1) << endl;
+    cout << "Find 2: " << ch.find(2) << endl;
+    cout << "Find 3: " << ch.find(3) << endl;
+    cout << "Find 4: " << ch.find(4) << endl;
+    cout << "Find 5: " << ch.find(5) << endl;
+    cout << "Find 6: " << ch.find(6) << endl;
+    cout << "Find 7: " << ch.find(7) << endl;
+    cout << "Find 8: " << ch.find(8) << endl;
+    cout << "Find 9: " << ch.find(9) << endl;
+    cout << "Find 10: " << ch.find(10) << endl;
+    cout << "Find 11: " << ch.find(11) << endl;
+    cout << "Find 12: " << ch.find(12) << endl;
 
     return 0;
 }
