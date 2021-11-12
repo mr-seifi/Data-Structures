@@ -18,6 +18,7 @@ private:
     ArrayStack<ArrayStack<T>> t;
     int n;
     int d;
+    unsigned int z;
 };
 
 

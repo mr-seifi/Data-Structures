@@ -1,5 +1,5 @@
 #include "ChainedHashTable.h"
-#include "Node.h"
+#include <time.h>
 
 template <typename T>
 ChainedHashTable<T>::ChainedHashTable(unsigned int d)
@@ -7,6 +7,12 @@ ChainedHashTable<T>::ChainedHashTable(unsigned int d)
 {
     this->n = 0;
     this->d = d;
+    std::srand(time(0));
+    std::string x = "";
+    for(int i = 0; i < 31; ++i)
+        x += std::to_string(rand() % 2);
+    x += "1";
+    z = stoul(x, 0, 2);
 }
 
 template <typename T>
@@ -60,7 +66,7 @@ void ChainedHashTable<T>::resize()
 template <typename T>
 unsigned int ChainedHashTable<T>::hash(const T &x)
 {
-    return ((unsigned int) (4102541685) * hashCode(x) >> (32 - d));
+    return (((unsigned int) z * hashCode(x)) >> (32 - d));
 }
 
 template <typename T>
