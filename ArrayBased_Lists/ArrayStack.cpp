@@ -12,9 +12,9 @@ ArrayStack<T>::ArrayStack(unsigned int len)
               :a(len)
 {
     n = 0;
-    T x;
+    T *x = new T;
     for(int i = 0; i < len; ++i)
-        add(size(), x);
+        add(size(), *x);
 }
 
 template <typename T>
@@ -76,7 +76,7 @@ T ArrayStack<T>::remove(unsigned int i)
 template <typename T>
 void ArrayStack<T>::resize()
 {
-    Array<T> b((n * 2 > 1 ? n * 2 : 1));
+    Array<T> b((capacity() * 2 > 1 ? capacity() * 2 : 1));
     std::copy(a.a + 0, a.a + n, b.a + 0);
     a = b;
 }
@@ -94,4 +94,16 @@ template <typename T>
 T &ArrayStack<T>::operator[](int subscript)
 {
     return get(subscript);
+}
+
+template <typename T>
+ArrayStack<T> &ArrayStack<T>::operator=(const ArrayStack<T> &b)
+{
+    if(a.a != NULL)
+        delete[] a.a;
+    a.a = new T[b.capacity()];
+    n = b.size();
+    a.length = b.a.length;
+    std::copy(b.a.a + 0, b.a.a + n, a.a + 0);
+    return *this;
 }

@@ -21,6 +21,7 @@ public:
     T remove(unsigned int);
     void resize();
     T& operator[](int subscript);
+    ArrayStack<T> &operator=(const ArrayStack<T>&);
 
 private:
     Array<T> a;
