@@ -3,7 +3,7 @@
 
 template <typename T>
 ChainedHashTable<T>::ChainedHashTable(unsigned int d)
-                   : t(1 << d)
+                    : t(1 << d)
 {
     this->n = 0;
     this->d = d;
@@ -13,7 +13,7 @@ template <typename T>
 bool ChainedHashTable<T>::add(const T &x)
 {
     if(find(x)) return false;
-    if(n + 1 > t.size())
+    if(n + 1 > t.capacity())
         resize();
     int j = hash(x);
     t[j].add(t[j].size(), x);
@@ -49,11 +49,12 @@ bool ChainedHashTable<T>::remove(const T &x)
 template <typename T>
 void ChainedHashTable<T>::resize()
 {
-    ArrayStack<ArrayStack<T>> temp = t;
-    t = ArrayStack<ArrayStack<T>>(temp.size() * 2);
-    for(int i = 0; i < temp.size(); ++i)
-        for(int j = 0; j < temp[i].size(); ++j)
-            t[hash(temp[i][j])].add(j, temp[i][j]);
+    ArrayStack<ArrayStack<T>> b(t.size() * 2);
+    ++d;
+    for(int i = 0; i < t.size(); ++i)
+        for(int j = 0; j < t[i].size(); ++j)
+            b[hash(t[i][j])].add(b[hash(t[i][j])].size(), t[i][j]);
+    t = b;
 }
 
 template <typename T>

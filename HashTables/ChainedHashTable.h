@@ -6,7 +6,7 @@
 template <typename T>
 class ChainedHashTable {
 public:
-    ChainedHashTable(unsigned int = 8);
+    explicit ChainedHashTable(unsigned int = 8);
     bool add(const T&);
     bool find(const T&);
     bool remove(const T&);
