@@ -12,7 +12,7 @@ set(HashTables "HashTables")
 #Include the directories and now your cpp files will recognize your headers
 include_directories(${ArrayBased} ${LinkedLists} ${HashTables})
 
-set(Headers ${ArrayBased}/Array.h ${ArrayBased}/ArrayStack.h ${ArrayBased}/ArrayQueue.h ${LinkedLists}/Node.h ${LinkedLists}/SLList.h ${LinkedLists}/DLList.h ${HashTables}/ChainedHashTable.h)
-set(Sources ${ArrayBased}/ArrayStack.cpp ${ArrayBased}/ArrayQueue.cpp ${LinkedLists}/SLList.cpp ${LinkedLists}/DLList.cpp ${HashTables}/ChainedHashTable.cpp)
+set(Headers ${ArrayBased}/Array.h ${ArrayBased}/ArrayStack.h ${ArrayBased}/ArrayQueue.h ${LinkedLists}/Node.h ${LinkedLists}/SLList.h ${LinkedLists}/DLList.h ${HashTables}/ChainedHashTable.h ${HashTables}/LinearHashTable.h)
+set(Sources ${ArrayBased}/ArrayStack.cpp ${ArrayBased}/ArrayQueue.cpp ${LinkedLists}/SLList.cpp ${LinkedLists}/DLList.cpp ${HashTables}/ChainedHashTable.cpp ${HashTables}/LinearHashTable.cpp)
 
 add_executable(Data-Structures main.cpp ${Sources} ${Headers})
