@@ -4,6 +4,7 @@
 #include "Linked_Lists/SLList.cpp"
 #include "Linked_Lists/DLList.cpp"
 #include "HashTables/ChainedHashTable.cpp"
+#include "BinaryTrees/BST.cpp"
 
 using namespace std;
 
@@ -158,6 +159,34 @@ int main()
     cout << "Find 10: " << ch.find(10) << endl;
     cout << "Find 11: " << ch.find(11) << endl;
     cout << "Find 12: " << ch.find(12) << endl;
+
+    cout << "------------------------ BinarySearchTree ------------------------" << endl;
+    BST<int> bst;
+    cout << "Add 3" << endl;
+    bst.add(3);
+    cout << "Add 1" << endl;
+    bst.add(1);
+    cout << "Add 2" << endl;
+    bst.add(2);
+    cout << "Find 1: " << bst.find(1) << endl;
+    cout << "Find 2: " << bst.find(2) << endl;
+    cout << "Find 3: " << bst.find(3) << endl;
+    cout << "Find 4: " << bst.find(4) << endl;
+    cout << "Add 4" << endl;
+    bst.add(4);
+    cout << "Add 8" << endl;
+    bst.add(8);
+    cout << "Add 5" << endl;
+    bst.add(5);
+    cout << "Root: " << bst.r->data
+         << ", Left Root: " << bst.r->left->data
+         << ", Right Root: " << bst.r->right->data
+         << ", Left Right Root: " << bst.r->left->right->data
+         << ", Right Right Root: " << bst.r->right->right->data
+         << ", Right Right Left Root: " << bst.r->right->right->left->data << endl;
+    cout << "Root Height: " << bst.height(bst.r) << endl;
+    cout << "Root Depth: " << bst.depth(bst.r) << endl;
+    cout << "5 Depth: " << bst.depth(bst.findLast(5)) << endl;
 
     return 0;
 }
