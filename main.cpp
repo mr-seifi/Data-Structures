@@ -4,7 +4,9 @@
 #include "Linked_Lists/SLList.cpp"
 #include "Linked_Lists/DLList.cpp"
 #include "HashTables/ChainedHashTable.cpp"
-#include "BinaryTrees/BST.cpp"
+#include "BSTNode.h"
+#include "BST.cpp"
+#include "Treap.cpp"
 
 using namespace std;
 
@@ -161,7 +163,7 @@ int main()
     cout << "Find 12: " << ch.find(12) << endl;
 
     cout << "------------------------ BinarySearchTree ------------------------" << endl;
-    BST<int> bst;
+    BST<BSTNode<int>, int> bst;
     cout << "Add 3" << endl;
     bst.add(3);
     cout << "Add 1" << endl;
@@ -187,6 +189,50 @@ int main()
     cout << "Root Height: " << bst.height(bst.r) << endl;
     cout << "Root Depth: " << bst.depth(bst.r) << endl;
     cout << "5 Depth: " << bst.depth(bst.findLast(5)) << endl;
+    cout << "8 Height: " << bst.height(bst.findLast(8)) << endl;
+    cout << "Size: " << bst.size(bst.r) << endl;
+    cout << "Add -7" << endl;
+    bst.add(-7);
+    cout << "Add -8" << endl;
+    bst.add(-8);
+    cout << "Add -6" << endl;
+    bst.add(-6);
+    cout << "Remove 4" << endl;
+    bst.remove(bst.findLast(4));
+    cout << "Root: " << bst.r->data
+         << ", Left Root: " << bst.r->left->data
+         << ", Right Root: " << bst.r->right->data
+         << ", Left Right Root: " << bst.r->left->right->data
+         << ", Right Left Root: " << bst.r->right->left->data
+         << ", Left Left Root: " << bst.r->left->left->data << endl;
+    cout << "Remove 1" << endl;
+    bst.remove(bst.findLast(1));
+    cout << "Root: " << bst.r->data
+         << ", Left Root: " << bst.r->left->data
+         << ", Right Root: " << bst.r->right->data
+         << ", Right Left Root: " << bst.r->right->left->data
+         << ", Left Left Root: " << bst.r->left->left->data << endl;
+
+    cout << "------------------------ Treap ------------------------" << endl;
+    Treap<int> treap;
+    cout << "Add 3" << endl;
+    treap.add(3);
+    cout << "Add 1" << endl;
+    treap.add(1);
+    cout << "Add 2" << endl;
+    treap.add(2);
+    cout << "Add 5" << endl;
+    treap.add(5);
+    cout << "Add 8" << endl;
+    treap.add(8);
+    cout << "Add 4" << endl;
+    treap.add(4);
+    cout << "Traverse" << endl;
+    cout << treap << endl;
+    cout << "Remove 3" << endl;
+    treap.remove(3);
+    cout << "Traverse" << endl;
+    cout << treap << endl;
 
     return 0;
 }

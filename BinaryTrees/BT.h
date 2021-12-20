@@ -2,6 +2,7 @@
 #define DATA_STRUCTURES_BT_H
 
 #include <iostream>
+#include "BTNode.h"
 
 template <typename Node, typename T>
 class BT {
