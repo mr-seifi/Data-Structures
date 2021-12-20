@@ -3,24 +3,17 @@
 
 #include <iostream>
 
-template <typename T>
+template <typename Node, typename T>
 class BTNode
 {
 public:
-    BTNode *left;
-    BTNode *right;
-    BTNode *parent;
-    T data;
+    Node *left;
+    Node *right;
+    Node *parent;
     BTNode()
     {
         left = right = parent = NULL;
     }
-    BTNode(const T &d)
-    {
-        left = right = parent = NULL;
-        data = d;
-    }
-
 };
 
 #endif //DATA_STRUCTURES_BTNODE_H
