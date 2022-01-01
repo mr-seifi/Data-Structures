@@ -7,6 +7,7 @@
 #include "BSTNode.h"
 #include "BST.cpp"
 #include "Treap.cpp"
+#include "AdjacencyMatrix.h"
 
 using namespace std;
 
@@ -233,6 +234,22 @@ int main()
     treap.remove(3);
     cout << "Traverse" << endl;
     cout << treap << endl;
+    // TODO: BFS implementation for BT
+    // TODO: Red-Black Tree implementation
 
+    cout << "------------------------ Graph(AdjacencyMatrix) ------------------------" << endl;
+    AdjacencyMatrix aM(4);
+    aM.addEdge(1, 2);
+    aM.addEdge(2, 3);
+    aM.addEdge(0, 1);
+    cout << aM;
+    aM.removeEdge(1, 2);
+    aM.addEdge(3, 2);
+    cout << aM;
+    vector<unsigned int> u = aM.inEdges(3);
+    cout << "u.size() = " << u.size() << ", u[0] = " << u[0] << endl;
+    cout << aM;
+    u = aM.outEdges(2);
+    cout << "u.size() = " << u.size() << ", u[0] = " << u[0] << endl;
     return 0;
 }
