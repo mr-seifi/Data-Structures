@@ -74,6 +74,24 @@ T ArrayStack<T>::remove(unsigned int i)
 }
 
 template <typename T>
+bool ArrayStack<T>::has(const T &x) const
+{
+    for(unsigned int i = 0; i < n; ++i)
+        if(a[i] == x)
+            return true;
+    return false;
+}
+
+template <typename T>
+unsigned int ArrayStack<T>::find(const T &x) const
+{
+    for(unsigned int i = 0; i < n; ++i)
+        if(a[i] == x)
+            return i;
+    return -1;
+}
+
+template <typename T>
 void ArrayStack<T>::resize()
 {
     Array<T> b((capacity() * 2 > 1 ? capacity() * 2 : 1));
@@ -94,6 +112,12 @@ template <typename T>
 T &ArrayStack<T>::operator[](int subscript)
 {
     return get(subscript);
+}
+
+template <typename T>
+const T &ArrayStack<T>::operator[](int subscript) const
+{
+    return a.a[subscript];
 }
 
 template <typename T>

@@ -19,8 +19,11 @@ public:
     T set(unsigned int, const T&);
     void add(unsigned int, const T&);
     T remove(unsigned int);
+    bool has(const T&) const;
+    unsigned int find(const T&) const;
     void resize();
     T& operator[](int subscript);
+    const T &operator[](int subscript) const;
     ArrayStack<T> &operator=(const ArrayStack<T>&);
 
 private:
