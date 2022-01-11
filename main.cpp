@@ -1,13 +1,14 @@
 #include <iostream>
-#include "ArrayBased_Lists/ArrayStack.cpp"
-#include "ArrayBased_Lists/ArrayQueue.cpp"
-#include "Linked_Lists/SLList.cpp"
-#include "Linked_Lists/DLList.cpp"
-#include "HashTables/ChainedHashTable.cpp"
+#include "ArrayStack.h"
+#include "ArrayQueue.cpp"
+#include "SLList.cpp"
+#include "DLList.cpp"
+#include "ChainedHashTable.cpp"
 #include "BSTNode.h"
 #include "BST.cpp"
 #include "Treap.cpp"
 #include "AdjacencyMatrix.h"
+#include "AdjacencyList.h"
 
 using namespace std;
 
@@ -251,5 +252,20 @@ int main()
     cout << aM;
     u = aM.outEdges(2);
     cout << "u.size() = " << u.size() << ", u[0] = " << u[0] << endl;
+
+    cout << "------------------------ Graph(AdjacencyMatrix) ------------------------" << endl;
+    AdjacencyList aL(4);
+    aL.addEdge(1, 2);
+    aL.addEdge(2, 3);
+    aL.addEdge(0, 1);
+    cout << aL;
+    aL.removeEdge(1, 2);
+    aL.addEdge(3, 2);
+    cout << aL;
+    ArrayStack<unsigned int> ux = aL.inEdges(3);
+    cout << "ux.size() = " << ux.size() << ", ux[0] = " << ux[0] << endl;
+    cout << aL;
+    ux = aL.outEdges(2);
+    cout << "ux.size() = " << ux.size() << ", ux[0] = " << ux[0] << endl;
     return 0;
 }
