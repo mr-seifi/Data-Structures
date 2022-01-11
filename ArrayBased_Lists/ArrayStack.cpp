@@ -92,26 +92,16 @@ unsigned int ArrayStack<T>::find(const T &x) const
 }
 
 template <typename T>
-void ArrayStack<T>::resize()
-{
+void ArrayStack<T>::resize() {
     Array<T> b((capacity() * 2 > 1 ? capacity() * 2 : 1));
     std::copy(a.a + 0, a.a + n, b.a + 0);
     a = b;
 }
 
 template <typename T>
-std::ostream &operator<<(std::ostream &output, const ArrayStack<T> &b)
-{
-    int t = b.n;
-    while(t)
-        output << b.a[b.n - t--] << '\t';
-    return output;
-}
-
-template <typename T>
 T &ArrayStack<T>::operator[](int subscript)
 {
-    return get(subscript);
+    return a.a[subscript];
 }
 
 template <typename T>
@@ -130,4 +120,13 @@ ArrayStack<T> &ArrayStack<T>::operator=(const ArrayStack<T> &b)
     a.length = b.a.length;
     std::copy(b.a.a + 0, b.a.a + n, a.a + 0);
     return *this;
+}
+
+template <typename T>
+std::ostream &operator<<(std::ostream &output, const ArrayStack<T> &b)
+{
+    int t = b.n;
+    while(t)
+        output << b.a[b.n - t--] << '\t';
+    return output;
 }
